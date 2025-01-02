@@ -1,7 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/login', [HomeController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [HomeController::class, 'login'])->name('login.process');

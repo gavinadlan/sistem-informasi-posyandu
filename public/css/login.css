@@ -1,0 +1,103 @@
+/* General reset */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container untuk form login */
+.login-container {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Heading */
+.login-container h2 {
+    margin-bottom: 1.5rem;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Input fields */
+.login-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Button */
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    background: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Hover efek button */
+.login-container button:hover {
+    background: #0056b3;
+}
+
+/* Error message */
+.error {
+    color: #d9534f;
+    margin-bottom: 1rem;
+    font-size: 14px;
+}
+
+/* Logo */
+.login-container .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.login-container .logo img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.login-container .logo h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Dropdown */
+.login-container select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #fff;
+    color: #333;
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+    .login-container {
+        padding: 1.5rem;
+    }
+}
