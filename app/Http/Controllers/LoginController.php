@@ -8,25 +8,35 @@ class LoginController extends Controller
 {
     public function showLoginForm()
     {
-        return view('auth.login');
+        return view('auth.login'); // Pastikan view `auth.login` ada
     }
 
     public function process(Request $request)
     {
-        // Validasi form
-        $validatedData = $request->validate([
-            'username' => 'required|string',
+        $request->validate([
             'email' => 'required|email',
-            'password' => 'required|string|min:6',
+            'password' => 'required',
+            'role' => 'required|in:admin,kader,ibu_balita',
         ]);
 
-        // Logika login
-        if (auth()->attempt(['email' => $validatedData['email'], 'password' => $validatedData['password']])) {
-            return redirect()->intended('/');
+        $credentials = $request->only('email', 'password');
+        $role = $request->input('role');
+
+        if (Auth::attempt($credentials)) {
+            $user = Auth::user();
+
+            // Validasi role pengguna
+            if ($user->role === $role) {
+                return redirect()->route("dashboard.$role");
+            } else {
+                Auth::logout();
+                return back()->withErrors(['role' => 'Peran yang dipilih tidak sesuai.']);
+            }
         }
 
         return back()->withErrors(['email' => 'Email atau password salah.']);
     }
 }
+
 
 
